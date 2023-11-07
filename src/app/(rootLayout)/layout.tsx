@@ -1,6 +1,4 @@
-// import Navbar from './_components/Navbar/Navbar'
-// import HomeFooter from './_components/Footer/Footer'
-
+import Footer from "./_components/Footer/Footer"
 import Navbar from "./_components/Navbar/Navbar"
 
 interface RootLayoutProps {
@@ -11,8 +9,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <div>
       <Navbar />
-      {children}
-      {/* <HomeFooter /> */}
+      <div className="min-h-screen">{children}</div>
+      <Footer />
     </div>
   )
 }

@@ -44,7 +44,7 @@ const Navbar = () => {
     window.location.reload()
   }
   return (
-    <nav className='flexBetween container padding-container relative z-30 py-5 bg-slate-500'>
+    <nav className='flexBetween container padding-container relative z-30 py-5 bg-gray-200'>
       <Link href='/'>
         <Image
           src='https://cdn.pixabay.com/photo/2016/03/31/19/50/checklist-1295319_1280.png'
