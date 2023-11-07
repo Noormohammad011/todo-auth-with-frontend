@@ -17,7 +17,7 @@ const Profile = () => {
               className='flex justify-center items-center space-x-2'
             >
               <p className='text-xl font-bold'>{index + 1 } : </p>
-              <p className='text-xl font-bold'>{task.description}</p>
+              <p className='text-xl font-bold'>{task.title}</p>
             </div>
           ))}
         </div>
