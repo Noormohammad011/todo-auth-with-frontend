@@ -7,8 +7,7 @@ const Profile = () => {
   return (
     <div className='text-center my-5'>
       <h1 className='text-4xl font-bold'>Welcome {data?.name}</h1>
-      <h2 className='text-2xl font-bold'>Email {data?.email}</h2>
-      <h3 className='text-xl font-bold my-2'>Yout Completed Task</h3>
+      <h3 className='text-2xl font-bold my-2'>Your Completed Task:</h3>
       {
         <div className='text-black justify-center items-center'>
           {data?.tasks.map((task: TaskType, index: string) => (
