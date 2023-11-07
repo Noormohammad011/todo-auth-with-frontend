@@ -5,7 +5,7 @@ import { userLoggedIn } from './authSlice'
 
 const AUTH_URL = '/auth'
 
-export const authApi = baseApi.injectEndpoints({
+export const authApi: any = baseApi.injectEndpoints({
   endpoints: (build) => ({
     userLogin: build.mutation({
       query: (loginData) => ({
@@ -61,7 +61,7 @@ export const authApi = baseApi.injectEndpoints({
       },
       invalidatesTags: [TagTypes.user],
     }),
-    profile: build.query({
+    getProfile: build.query({
       query: () => ({
         url: `${AUTH_URL}/me`,
         method: 'GET',
@@ -74,6 +74,6 @@ export const authApi = baseApi.injectEndpoints({
 export const {
   useUserLoginMutation,
   useUserSignupMutation,
-  useProfileQuery,
+  useGetProfileQuery,
   useChangePasswordMutation,
 } = authApi

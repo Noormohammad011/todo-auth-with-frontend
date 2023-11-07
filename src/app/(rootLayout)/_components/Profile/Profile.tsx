@@ -1,8 +1,9 @@
 'use client'
-import { useProfileQuery } from '@/redux/features/auth/authApi'
+import { useGetProfileQuery } from "@/redux/features/auth/authApi"
+
 
 const Profile = () => {
-  const { data } = useProfileQuery()
+  const { data } = useGetProfileQuery()
   return <div>{
   
    JSON.stringify(data)

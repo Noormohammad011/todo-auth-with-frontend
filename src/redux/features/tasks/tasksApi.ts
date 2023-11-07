@@ -4,7 +4,7 @@ import { TaskType } from '@/types'
 
 const TASKS_URL = '/tasks'
 
-export const tasksApi = baseApi.injectEndpoints({
+export const tasksApi: any = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createTask: build.mutation({
       query: (taskData) => ({
@@ -39,7 +39,7 @@ export const tasksApi = baseApi.injectEndpoints({
         try {
           await queryFulfilled
           dispatch(
-            tasksApi.util.updateQueryData('getTasks', {}, (draft) => {
+            tasksApi.util.updateQueryData('getTasks', {}, (draft: any) => {
               const index = draft?.tasks?.findIndex(
                 (task: TaskType) => task._id === taskId
               )
@@ -66,7 +66,7 @@ export const tasksApi = baseApi.injectEndpoints({
         try {
           await queryFulfilled
           dispatch(
-            tasksApi.util.updateQueryData('getTasks', {}, (draft) => {
+            tasksApi.util.updateQueryData('getTasks', {}, (draft: any) => {
               const index = draft?.tasks?.findIndex(
                 (task: TaskType) => task._id === taskId
               )
