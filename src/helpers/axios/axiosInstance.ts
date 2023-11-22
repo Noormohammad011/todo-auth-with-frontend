@@ -35,7 +35,7 @@ instance.interceptors.response.use(
   },
   async function (error) {
     const config = error?.config;
-    if (error?.response?.status === 403 && !config?.sent) { 
+    if (error?.response?.status === 401 && !config?.sent) { 
       config.sent = true;
       const response = await getNewAccessToken()
       const accessToken = response?.data?.accessToken;
@@ -43,6 +43,8 @@ instance.interceptors.response.use(
         config.headers.Authorization = accessToken;
         setToLocalStorage(authKey, accessToken);
         return instance(config);
+      } else {
+        window.location.href = "/login";
       }
     }
     else {

@@ -113,7 +113,7 @@ const CreateTodoCard = () => {
               />
             </div>
             <Button disabled={isLoading} className='w-full mt-6' type='submit'>
-              Crete Task
+              Create Task
             </Button>
           </form>
         </Form>
