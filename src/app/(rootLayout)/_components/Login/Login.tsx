@@ -42,7 +42,6 @@ const LoginCard = () => {
     toast.loading('Logging in...')
     try {
       const response = await userLogin({ ...values }).unwrap()
-      console.log(response)
       if (response?.accessToken) {
         router.push(`/`)
         toast.success('Login successfully')

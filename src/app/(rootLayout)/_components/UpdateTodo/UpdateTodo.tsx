@@ -27,7 +27,7 @@ import {
 const UpdateTodoCard = ({ id }: { id: string }) => {
   const router = useRouter()
   const { email } = useAppSelector((state) => state.auth)
-  const [updateTask, { isLoading }] = useUpdateTaskMutation()
+  const [updateTask, {data:upData, isLoading }] = useUpdateTaskMutation()
   const { data, refetch } = useGetTaskQuery(id)
   useEffect(() => {
     if (email === undefined || !email) {
@@ -39,14 +39,14 @@ const UpdateTodoCard = ({ id }: { id: string }) => {
   const form = useForm<UpdateTaskFormType>({
     resolver: updateTaskResolver,
     defaultValues: {
-      title: data ? data.title : '',
-      description: data ? data.description : '',
-      isCompleted: data ? data.isCompleted : false,
+      title: upData ? upData?.title : data?.title ,
+      description: upData ? upData?.description : data?.description,
+      isCompleted: upData ? upData?.isCompleted : data?.isCompleted,
     },
     values: {
-      title: data ? data.title : '',
-      description: data ? data.description : '',
-      isCompleted: data ? data.isCompleted : false,
+      title: upData ? upData?.title : data?.title ,
+      description: upData ? upData?.description : data?.description,
+      isCompleted: upData ? upData?.isCompleted : data?.isCompleted,
     },
   })
 
@@ -56,6 +56,7 @@ const UpdateTodoCard = ({ id }: { id: string }) => {
       const response = await updateTask({ _id: data?._id, ...values }).unwrap()
       if (!!response) {
         toast.success('Task updated successfully')
+        refetch()
       }
       form.reset()
       router.push('/')

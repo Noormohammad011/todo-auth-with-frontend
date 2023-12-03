@@ -35,12 +35,14 @@ import { useAppSelector } from '@/redux/hooks'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { deleteCookie } from '@/app/actions'
 
 const Navbar = () => {
   const { setTheme } = useTheme()
   const { email } = useAppSelector((state) => state.auth)
   const handleLogout = () => {
     removeUserInfo(authKey)
+    deleteCookie() 
     window.location.reload()
   }
   return (
