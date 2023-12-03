@@ -35,15 +35,14 @@ import { useAppSelector } from '@/redux/hooks'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { deleteCookie } from '@/app/actions'
-
+import { useRouter } from 'next/navigation'
 const Navbar = () => {
   const { setTheme } = useTheme()
+  const router = useRouter()
   const { email } = useAppSelector((state) => state.auth)
   const handleLogout = () => {
     removeUserInfo(authKey)
-    deleteCookie() 
-    window.location.reload()
+    router.push('/login')
   }
   return (
     <nav className='flexBetween container padding-container relative z-30 py-5 bg-gray-200'>
